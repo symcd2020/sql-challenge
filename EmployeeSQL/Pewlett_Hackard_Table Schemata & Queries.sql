@@ -4,6 +4,8 @@ CREATE TABLE departments (
   dept_name VARCHAR(255)
 );
 
+-- Import data from CSV by using the "Import/Export Data..." option on the Table.
+
 -- Check to ensure data imported
 Select *
 From departments
@@ -13,6 +15,8 @@ CREATE TABLE dept_emp2 (
   emp_no VARCHAR(30),
   dept_no VARCHAR(30)
 );
+
+-- Import data from CSV by using the "Import/Export Data..." option on the Table.
 
 -- Check to ensure data imported
 Select *
@@ -24,6 +28,7 @@ CREATE TABLE dept_manager (
   emp_no VARCHAR(30)
 );
 
+-- Import data from CSV by using the "Import/Export Data..." option on the Table.
 
 -- Check to ensure data imported
 Select *
@@ -41,6 +46,8 @@ CREATE TABLE employees (
   hire_date DATE
 );
 
+-- Import data from CSV by using the "Import/Export Data..." option on the Table.
+
 -- Check to ensure data imported
 Select *
 From employees
@@ -52,6 +59,7 @@ CREATE TABLE salaries (
   salary INT
 );
 
+-- Import data from CSV by using the "Import/Export Data..." option on the Table.
 
 -- Check to ensure data imported
 Select *
@@ -64,6 +72,7 @@ CREATE TABLE titles (
   title VARCHAR(255)
 );
 
+-- Import data from CSV by using the "Import/Export Data..." option on the Table.
 
 -- Check to ensure data imported
 Select *
