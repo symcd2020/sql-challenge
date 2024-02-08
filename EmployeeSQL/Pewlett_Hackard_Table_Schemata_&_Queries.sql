@@ -1,7 +1,7 @@
 -- Create a new table
 CREATE TABLE departments (
   dept_no VARCHAR(30) PRIMARY KEY,
-  dept_name VARCHAR(255)
+  dept_name VARCHAR(255) NOT NULL 
 );
 
 -- Import data from CSV by using the "Import/Export Data..." option on the Table.
@@ -11,33 +11,8 @@ Select *
 From departments
 
 -- Create a new table
-CREATE TABLE dept_emp2 (
-  emp_no VARCHAR(30),
-  dept_no VARCHAR(30)
-);
-
--- Import data from CSV by using the "Import/Export Data..." option on the Table.
-
--- Check to ensure data imported
-Select *
-From dept_emp2
-
--- Create a new table
-CREATE TABLE dept_manager (
-  dept_no VARCHAR(30),
-  emp_no VARCHAR(30)
-);
-
--- Import data from CSV by using the "Import/Export Data..." option on the Table.
-
--- Check to ensure data imported
-Select *
-From dept_manager
-
-
--- Create a new table
 CREATE TABLE employees (
-  emp_no VARCHAR(30),
+  emp_no VARCHAR(30) PRIMARY KEY,
   emp_title_id VARCHAR(30),
   birth_date DATE,
   first_name VARCHAR(255),
@@ -54,9 +29,40 @@ From employees
 
 
 -- Create a new table
+CREATE TABLE dept_manager (
+  dept_no VARCHAR(30),
+  emp_no VARCHAR(30),
+  FOREIGN KEY (dept_no) REFERENCES departments(dept_no),
+  FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
+);
+
+-- Import data from CSV by using the "Import/Export Data..." option on the Table.
+
+-- Check to ensure data imported
+Select *
+From dept_manager
+
+
+-- Create a new table
+CREATE TABLE dept_emp2 (
+  emp_no VARCHAR(30) NOT NULL,
+  dept_no VARCHAR(30) NOT NULL,
+  FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
+  FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
+);
+
+-- Import data from CSV by using the "Import/Export Data..." option on the Table.
+
+-- Check to ensure data imported
+Select *
+From dept_emp2
+
+
+-- Create a new table
 CREATE TABLE salaries (
   emp_no VARCHAR(30),
-  salary INT
+  salary INT,
+  FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
 -- Import data from CSV by using the "Import/Export Data..." option on the Table.
@@ -68,7 +74,7 @@ From salaries
 
 -- Create a new table
 CREATE TABLE titles (
-  title_id VARCHAR(30),
+  title_id VARCHAR(30) PRIMARY KEY,
   title VARCHAR(255)
 );
 
@@ -143,9 +149,3 @@ SELECT e.last_name, COUNT(*) AS frequency
 FROM employees e
 GROUP BY e.last_name
 ORDER BY frequency DESC
-
-
-
-
-
-
