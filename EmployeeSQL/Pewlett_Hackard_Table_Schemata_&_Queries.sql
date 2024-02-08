@@ -15,7 +15,7 @@ CREATE TABLE employees (
   emp_no INT PRIMARY KEY,
   emp_title_id VARCHAR(30),
   birth_date DATE,
-  first_name TEXTT,
+  first_name TEXT,
   last_name TEXT,
   sex TEXT,
   hire_date DATE
@@ -30,8 +30,8 @@ From employees
 
 -- Create a new table
 CREATE TABLE dept_manager (
-  dept_no VARCHAR(30),
-  emp_no INT,
+  dept_no VARCHAR(30) NOT NULL,
+  emp_no INT NOT NULL,
   FOREIGN KEY (dept_no) REFERENCES departments(dept_no),
   FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
